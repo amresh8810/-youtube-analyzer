@@ -1,0 +1,11 @@
+# YouTube Competitor Analysis Automation
+# Dependencies
+
+# HTTP requests for ScrapingDog API
+requests>=2.31.0
+
+# Environment variable management
+python-dotenv>=1.0.0
+
+# Date/time handling
+python-dateutil>=2.8.2
