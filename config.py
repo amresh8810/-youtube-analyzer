@@ -16,7 +16,7 @@ class Config:
     """Configuration for YouTube Competitor Analysis Automation"""
     
     # ============== ScrapingDog API ==============
-    SCRAPINGDOG_API_KEY: str = os.getenv("SCRAPINGDOG_API_KEY")
+    SCRAPINGDOG_API_KEY: str = os.getenv("6989ff535702dde902b520d4")
     SCRAPINGDOG_BASE_URL: str = "https://api.scrapingdog.com/youtube"
     
     # ============== Search Queries for AI Niche ==============
