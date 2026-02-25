@@ -5,7 +5,7 @@
 # ========================================
 
 # Configuration - UPDATE THESE PATHS
-PROJECT_DIR="/home/your_username/youtube-analyzer"  # Your project path
+PROJECT_DIR="/root/youtube-analyzer"  # Your project path
 VENV_PYTHON="$PROJECT_DIR/venv/bin/python"          # Virtual env Python
 LOG_DIR="$PROJECT_DIR/logs"
 

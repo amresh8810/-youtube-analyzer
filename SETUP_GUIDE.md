@@ -8,47 +8,38 @@ A powerful automation that monitors your competitors' YouTube channels and sends
 2. [Getting YouTube API Key](#getting-youtube-api-key)
 3. [Email Configuration](#email-configuration)
 4. [Local Setup & Testing](#local-setup--testing)
-5. [Hostinger KVM 2 Deployment](#hostinger-kvm-2-deployment)
-6. [Customizing Competitors](#customizing-competitors)
-7. [Troubleshooting](#troubleshooting)
+5. [GitHub Actions Deployment (Free)](#github-actions-deployment-free)
+6. [Hostinger KVM 2 Deployment](#hostinger-kvm-2-deployment)
+7. [Customizing Competitors](#customizing-competitors)
+8. [Troubleshooting](#troubleshooting)
 
 ---
 
 ## 🔧 Prerequisites
 
 - Python 3.8 or higher
-- A Google Cloud account (for YouTube API)
+- ScrapingDog API Key (Free trial available)
 - An email account (Gmail recommended)
-- SSH access to your Hostinger KVM 22
+- GitHub account (for free hosting) or Hostinger KVM
 
 ---
 
-## 🔑 Getting YouTube API Key
+## 🔑 Getting ScrapingDog API Key
 
-1. **Go to Google Cloud Console**
-   - Visit: https://console.cloud.google.com/
+1. **Sign up at ScrapingDog**
+   - Visit: https://www.scrapingdog.com/
+   - Create a free account.
 
-2. **Create a New Project** (or use existing)
-   - Click the project dropdown → "New Project"
-   - Name it "YouTube Analyzer" → Create
+2. **Get your API Key**
+   - Go to your Dashboard: https://api.scrapingdog.com/dashboard
+   - Copy your **API Key**.
 
-3. **Enable YouTube Data API v3**
-   - Go to "APIs & Services" → "Library"
-   - Search for "YouTube Data API v3"
-   - Click it → "Enable"
+3. **Use in .env file**
+   ```
+   SCRAPINGDOG_API_KEY=your_api_key_here
+   ```
 
-4. **Create API Credentials**
-   - Go to "APIs & Services" → "Credentials"
-   - Click "Create Credentials" → "API Key"
-   - Copy the API key
-
-5. **Restrict API Key (Recommended)**
-   - Click on the API key you created
-   - Under "API restrictions", select "Restrict key"
-   - Choose "YouTube Data API v3" only
-   - Save
-
-> ⚠️ **API Quota**: Free tier allows 10,000 units/day. Each channel analysis uses ~100-200 units. You can analyze ~50 channels daily.
+> ⚠️ **Credits**: Each YouTube search consumes credits. Monitor your usage in the ScrapingDog dashboard.
 
 ---
 
@@ -159,6 +150,32 @@ python main.py --dry-run
 # Full run with email
 python main.py
 ```
+
+---
+
+---
+
+## 🚀 GitHub Actions Deployment (FREE)
+
+This is the easiest way to host your bot for free. It will run automatically every day using GitHub's servers.
+
+### Step 1: Push Code to GitHub
+1. Create a **Private** repository on GitHub.
+2. Push all your project files to the repository.
+
+### Step 2: Set Up GitHub Secrets
+1. In your GitHub repo, go to **Settings** > **Secrets and variables** > **Actions**.
+2. Click **New repository secret** for each of these:
+   - `SCRAPINGDOG_API_KEY`: Your ScrapingDog API key.
+   - `EMAIL_SENDER`: Your Gmail address.
+   - `EMAIL_PASSWORD`: Your 16-character **Gmail App Password**.
+   - `EMAIL_RECIPIENT`: Where you want to receive the email.
+
+### Step 3: Enable the Workflow
+1. Go to the **Actions** tab in your repository.
+2. If it asks, click **"I understand my workflows, go ahead and enable them"**.
+3. You should see a workflow named "Daily YouTube Report".
+4. You can click **Run workflow** to test it immediately!
 
 ---
 

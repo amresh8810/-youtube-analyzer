@@ -111,6 +111,34 @@ crontab -e
 
 ---
 
+## 🚀 Hosting on GitHub (Free Workflow)
+
+You can host this for **FREE** using GitHub Actions. It will run automatically every day.
+
+### 1. Create a Private GitHub Repository
+- Create a new repository on GitHub (keep it **Private** to protect your code).
+- Push all these files to your repository.
+
+### 2. Configure GitHub Secrets
+GitHub Actions uses "Secrets" to store your API keys and Passwords securely.
+1. Go to your repository on GitHub.
+2. Click **Settings** > **Secrets and variables** > **Actions**.
+3. Create the following **New repository secrets**:
+
+| Secret Name | Description |
+|-------------|-------------|
+| `SCRAPINGDOG_API_KEY` | Your ScrapingDog API Key |
+| `EMAIL_SENDER` | Your Gmail address (e.g., `you@gmail.com`) |
+| `EMAIL_PASSWORD` | Your 16-character **Gmail App Password** |
+| `EMAIL_RECIPIENT` | The email address where you want to receive reports |
+
+### 3. Check the Workflow
+- The automation is defined in `.github/workflows/daily_report.yml`.
+- It is scheduled to run daily at 8:00 AM UTC.
+- You can manually test it: Go to **Actions** tab > Click **Daily YouTube Report** > **Run workflow**.
+
+---
+
 ## 🔑 API Keys
 
 ### ScrapingDog (Already configured!)
